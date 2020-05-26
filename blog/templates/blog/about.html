@@ -1,0 +1,179 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+<style class="text/css">
+
+
+.JumboHeaderImg{
+background-image: url("/static/images/fa.jpg");
+background-size: cover;
+}
+
+.fon{
+  font-family: 'Bree Serif', serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+.jumbotron .container{
+position: relative;
+bottom: 0;
+height: 20px;
+}
+#ju{
+  background: black;
+  margin-bottom: 0;
+  width: 100%;
+
+
+}
+
+#f{
+  font-family: 'Bree Serif', serif;
+  color: white;
+}
+
+</style>
+
+
+<div class="jumbotron JumboHeaderImg">
+  <br>
+  <br>
+<h1><p style="color:white">WELCOME TO MY BLOG.</p></h1><hr>
+    <div class="container">
+      <div class="text-left" font="white"><br>
+         <br>
+          <br>
+
+
+
+
+    </div>
+  </div>
+     <br>
+     <br>
+<br>
+</div>
+
+ <div class="fon">
+
+
+  <h3>Hi,I am Bhavy Bhatia and i love to learn new things and try to do it practically.</h3>
+  <p>This is my First Site related to the Blogs and i hope that you like it.</p>
+
+</div>
+<div class="main">
+
+ <div class="row">
+  <div class="column">
+    <div class="content">
+    <a href="https://www.instagram.com/p/BudnyzagVS6/"><img src="/static/images/bh3.PNG" alt="Mountains" style="width:100%"></a>
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+     <a href="https://www.instagram.com/p/B510QCxgjMY/"><img src="/static/images/bh2.PNG" alt="Lights" style="width:100%"></a>
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+     <a href="https://www.instagram.com/p/B6vTTKaAVdZ/"><img src="/static/images/bh.PNG" alt="Nature" style="width:100%"></a>
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+  <a href="https://www.instagram.com/p/BuMDr9CgO2v/"> <img src="/static/images/bh4.PNG" alt="Mountains" style="width:100%"></a>
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
+  </div>
+</div>
+<!-- END GRID -->
+</div>
+
+<div class="jumbotron" id="ju">
+  <div class="container">
+
+    <div class="text-center" style="text-align: center">
+
+
+  <p class="text-center" id="f">Enter email address</p>
+  <input type="email" id="f" name="email" value=""class="text-center" placeholder="Enter Email" style="width:300px;">
+  </div>
+  </div>
+  <footer class="text-muted" align="bottom"><br><br><br>
+    <div class="container text-center">
+       <p>&copy;Bhavy Bhatia {% now "Y" %} Blog</p>
+  </footer>
+
+
+</div>
+
+
+
+{% endblock %}

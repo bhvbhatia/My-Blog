@@ -1,0 +1,49 @@
+{% extends 'blog/base.html' %}
+
+
+{% block body_block %}
+<style>
+
+.jumbotron{
+  margin-left: 420px;
+  margin-right: 420px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+}
+
+#frm{
+  width:70%;
+}
+body{
+  background-color: #18a370;
+}
+button{
+  background: #18a370;
+  border-radius: 4px;
+}
+</style>
+
+<br><br><br>
+<body>
+
+</body>
+<div class="jumbotron">
+
+
+<div align="center">
+
+
+    <h1>Leave your comment</h1><br>
+  <form action="" method="POST" class="form-group">
+     {% csrf_token %}
+       {{form.as_p}}
+
+    <button type="submit" class="save btn btn-default" style="color:white">Post Comment</button>
+    </form>
+</div>
+</div>
+    <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

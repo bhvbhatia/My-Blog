@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+{% block body_block %}
+
+
+<style>
+.jumbotron{
+  margin-left: 420px;
+  margin-right: 420px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+}
+body{
+  background-color:  #18a370;
+}
+
+</style>
+
+
+<br><br>
+<body>
+
+</body>
+
+<div class="jumbotron">
+
+<div align="center">
+
+    <h1>New post</h1>
+
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+   {% endfor %}
+    <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    <script>var editor = new MediumEditor('.editable');</script>
+</div>
+</div>
+{% endblock %}

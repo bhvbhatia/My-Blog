@@ -1,0 +1,109 @@
+{% extends "blog/base.html" %}
+
+{% block body_block %}
+<br><br>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+.container {
+  position: relative;
+  max-width: 1600px;
+  margin: 0px;
+}
+
+.container img{
+  position: fixed;
+  margin-top: -60px;
+  margin-left: -15px;
+  margin-right: -1000px;
+}
+
+.container .content {
+  position: absolute;
+  top: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0); /* Black background with 0.5 opacity */
+  color: black;
+  width: 70%;
+  margin-left: 30px;
+  font-size: 30px;
+  margin-top: -30px;
+
+}
+#cmt{
+  position: absolute;
+
+  margin-top: 250px;
+  margin-left: 50px;
+
+}
+.comment{
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+
+}
+#nocmt{
+  position: fixed;
+  margin-top: 350px;
+  margin-left: 50px
+}
+.er{
+
+}
+</style>
+
+<div class="container">
+  <img src="/static/images/de.PNG" alt="Notebook" style="width:100%;">
+   <div class="content">
+     <p style="background:yellow"> <strong>Publish on:</strong> {{dblog.pub_date_pretty}}</p>
+     <p style="background:yellow"><strong>Title: </strong>{{dblog.title}}</p>
+     <p style="background:yellow"><strong>Description:</strong> {{dblog.body}}</p>
+     <p style="background:yellow"><strong>Publish By:</strong> {{dblog.name|safe|linebreaksbr}}</p><br>
+  <div class="er" align="center">
+
+
+     {% if user.is_authenticated %}
+         <a class="btn btn-primary" href="{% url 'blog:post_edit' pk=dblog.pk %}"><span class="fa fa-pencil"></span></a>
+         <a class="btn btn-primary" href="{% url 'blog:post_remove' pk=dblog.pk %}"><span class="fa fa-window-close"></span></a>
+
+     {% endif %}
+     </div>
+  </div>
+  <hr>
+<a class="btn btn-dark" id="cmt" style="color:white" href="{% url 'blog:comment_form' pk=dblog.pk %}">Add comment</a>
+{% for comment in dblog.comments.all %}
+<br>
+   {% if user.is_authenticated or comment.approved_comment %}
+   <div class="comment">
+       <div class="date">
+         {% if not comment.approved_comment %}
+         <br><br><br>
+               <a class="btn btn-default" href="{% url 'blog:comment_remove' pk=comment.pk %}"><span class="fa fa-window-close"></span></a>
+               <a class="btn btn-default" href="{% url 'blog:comment_approve' pk=comment.pk %}"><span class="fa fa-check"></span></a>
+        {% endif %}
+      </div>
+
+        <p><strong>{{ comment.created_date }}</strong></p>
+        <p><strong>{{ comment.text|safe|linebreaks }}</strong></p>
+        <strong>Posted By: {{ comment.author }}</strong>
+       <br><br><br>
+   </div>
+  {% endif %}
+{% empty %}
+  <strong><p id='nocmt'>No comments here yet :(</p></strong>
+{% endfor %}
+</div>
+
+
+
+
+{% endblock %}

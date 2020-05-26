@@ -1,0 +1,60 @@
+{% extends "blog/base.html" %}
+
+{% block body_block %}
+<style>
+.jumbotron{
+  margin-left: 470px;
+  margin-right: 470px;
+  padding-top: -200px;
+  background-color: white;
+
+}
+.form-control{
+  width: 60%;
+}
+body{
+  background-color: #18a370;
+}
+button{
+  background: #18a370;
+  border-radius: 4px;
+
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+}
+
+
+</style>
+
+<body>
+
+</body>
+           <br><br><br>
+  <div class="jumbotron " style="">
+
+
+      <div align="center">
+        <h1>Login</h1><hr>
+
+          <form action="" method="post">
+                     {% csrf_token %}
+
+                     <div class="form-group">
+                      <label for="username">username</label>
+                      <input type="text" class="form-control" placeholder="Username" name="username">
+                    </div>
+
+                   <div class="form-group">
+                     <label for="password">Password:</label>
+                     <input type="password" class="form-control" name="password" placeholder="password">
+                    </div>
+
+            <button type="submit" class="btn btn-default" style="color:white"><h5>Login</h5></button><hr>
+              <small>Don't have an account! <a href="{% url 'blog:register' %}">Sign up here</a> </small>
+       </form>
+     </div>
+
+ </div>
+
+{% endblock %}
